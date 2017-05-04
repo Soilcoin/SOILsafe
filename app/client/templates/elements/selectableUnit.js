@@ -17,24 +17,8 @@ The available units
 @property selectableUnits
 */
 selectableUnits = [{
-    text: 'ETHER',
+    text: 'SOIL',
     value: 'ether'
-},
-{
-    text: 'FINNEY', //(µΞ)
-    value: 'finney'
-},
-{
-    text: 'BTC',
-    value: 'btc'
-},
-{
-    text: 'USD',
-    value: 'usd'
-},
-{
-    text: 'EUR',
-    value: 'eur'
 }];
 
 
@@ -46,18 +30,7 @@ if (moment().format('MM-DD')=='04-01') {
         { text: 'BABBAGE', value: 'babbage'},
         { text: 'WEI', value: 'wei'},
         { text: 'NOETHER', value: 'noether'})
-
-// Claude's Birthday
-} else if (moment().format('MM-DD')=='04-30') { 
-    selectableUnits.push({ text: 'SHANNON', value: 'shannon'})
-// Ada's Birthday
-} else if (moment().format('MM-DD')=='12-10') { 
-    selectableUnits.push({ text: 'LOVELACE', value: 'lovelace'})
-// Charles's Birthday
-} else if (moment().format('MM-DD')=='12-26') { 
-    selectableUnits.push({ text: 'BABBAGE', value: 'babbage'})
 }
-
 
 Template['elements_selectableUnit'].helpers({
     /**

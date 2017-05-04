@@ -2,7 +2,7 @@
     
     <!-- we use a form, which posts into the "dapp-form-helper-iframe" iframe, so that the browser stores inout fields for native autocpmplete -->
     <form class="account-send-form" action="about:blank" target="dapp-form-helper-iframe" autocomplete="on">
-            
+
         {{#if deployContract}}
             <h1>{{{i18n 'wallet.contracts.deployContract'}}}</h1>
         {{else}}
@@ -58,33 +58,33 @@
                 <p class="send-info">
                     {{#if $eq (TemplateVar.get "selectedToken") "ether"}}
                         {{#if isEtherUnit}}
-                            {{{i18n 'wallet.send.texts.sendAmount' amount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000000000000000] UNIT" "ether")}}}
+                            {{{i18n 'wallet.send.texts.sendAmount' amount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000000000000000] " "ether")}}} SOIL
                         {{else}}
-                            {{{i18n 'wallet.send.texts.sendAmountEquivalent' amount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000] UNIT") etherAmount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000000000000000] UNIT" "ether")}}}
+                            {{{i18n 'wallet.send.texts.sendAmountEquivalent' amount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000] UNIT") etherAmount=(dapp_formatBalance (TemplateVar.get "amount") "0,0.[000000000000000000] " "ether")}}} SOIL
                         {{/if}}
                         {{TemplateVar.get "dailyLimitText"}}
                     {{else}}
                         {{sendExplanation}}
                     {{/if}}
                 </p>
-              
+
             </div>
-            
+
             <div class="col col-6 mobile-full">
                 <br><br>
 
                 {{#if hasTokens}}
                     <ul class="select-token">
                         <li>
-                            <input type="radio" id="ether" value="ether" name="choose-token" {{tokenSelectedAttr 'ether'}}> 
-                            <label for="ether"> 
+                            <input type="radio" id="ether" value="ether" name="choose-token" {{tokenSelectedAttr 'ether'}}>
+                            <label for="ether">
                                 <span class="ether-symbol">Ξ</span>
-                                <span class="token-name">ETHER</span>
+                                <span class="token-name">Soil</span>
                                 <span class="balance">
                                     {{#if $neq unit 'ether'}}
-                                        {{dapp_formatBalance selectedAccount.balance "0,0.00 UNIT"}} ({{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] UNIT" "ether"}})
+                                        {{dapp_formatBalance selectedAccount.balance "0,0.00 UNIT"}} ({{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] " "ether"}} SOIL)
                                     {{else}}
-                                        {{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] UNIT" "ether"}}
+                                        {{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] " "ether"}} SOIL
                                     {{/if}}
                                 </span>
                             </label>
@@ -92,9 +92,9 @@
                         {{#each tokens}}
                             {{#if formattedCoinBalance}}
                                 <li>
-                                    <input type="radio" id="token-{{address}}" value="{{address}}"  name="choose-token" {{tokenSelectedAttr address}}> 
-                                    <label for="token-{{address}}"> 
-                                        {{> dapp_identicon identity=address class="dapp-tiny"}} 
+                                    <input type="radio" id="token-{{address}}" value="{{address}}"  name="choose-token" {{tokenSelectedAttr address}}>
+                                    <label for="token-{{address}}">
+                                        {{> dapp_identicon identity=address class="dapp-tiny"}}
                                         <span class="token-name">{{name}}</span>
                                         <span class="balance">{{formattedCoinBalance}}</span>
                                     </label>
@@ -103,14 +103,14 @@
                         {{/each}}
                     </ul>
                 {{else}}
-                    <div class="token-ether"> 
+                    <div class="token-ether">
                         <span class="ether-symbol">Ξ</span>
-                        <span class="token-name">ETHER</span>
+                        <span class="token-name">Soil</span>
                         <span class="balance">
                             {{#if $neq unit 'ether'}}
-                                {{dapp_formatBalance selectedAccount.balance "0,0.00 UNIT"}} ({{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] UNIT" "ether"}})
+                                {{dapp_formatBalance selectedAccount.balance "0,0.00 UNIT"}} ({{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] " "ether"}} SOIL)
                             {{else}}
-                                {{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] UNIT" "ether"}}
+                                {{dapp_formatBalance selectedAccount.balance "0,0.00[0000000000000000] " "ether"}} SOIL
                             {{/if}}
                         </span>
                     </div>
@@ -133,7 +133,7 @@
 
                 {{> dapp_selectGasPrice gas=(TemplateVar.get "estimatedGas") gasPrice=latestBlock.gasPrice}}
             </div>
-            
+
             <div class="col col-5 mobile-full send-info">
                 <br><br>
                 {{{i18n 'wallet.send.texts.sendFee' timetext=timeText}}}
@@ -153,20 +153,22 @@
             <div class="col col-12 mobile-full">
                 <h3>{{i18n "commonWords.total"}}</h3>
                 {{#if $eq (TemplateVar.get "selectedToken") "ether"}}
-                    <span class="amount">{{dapp_formatBalance total "0,0.00[0000000000000000] UNIT"}}</span>
                     {{#if $neq unit 'ether'}}
+                        <span class="amount">{{dapp_formatBalance total "0,0.00[0000000000000000] UNIT"}}</span>
                         <br>
-                        ({{dapp_formatBalance total "0,0.00[0000000000000000] UNIT" "ether"}})
+                        ({{dapp_formatBalance total "0,0.00[0000000000000000] " "ether"}} SOIL)
+                    {{else}}
+                      <span class="amount">{{dapp_formatBalance total "0,0.00[0000000000000000] "}} SOIL</span>
                     {{/if}}
                 {{else}}
                     <span class="amount">{{tokenTotal}}</span> {{selectedToken.symbol}}
                     <br>
-                    {{i18n "wallet.send.estimatedFee"}}: {{dapp_formatBalance total "0,0.00[000000] UNIT" "ether"}}
+                    {{i18n "wallet.send.estimatedFee"}}: {{dapp_formatBalance total "0,0.00[000000] " "ether"}} SOIL
                 {{/if}}
 
                 {{#if selectedAccountIsWalletContract}}
                     <br>
-                    {{i18n "wallet.send.texts.ownerPaysGas"}} ({{dapp_formatBalance (TemplateVar.getFrom ".dapp-select-gas-price" "gasInWei") "0,0.00[0000000000000000] UNIT" "ether"}})
+                    {{i18n "wallet.send.texts.ownerPaysGas"}} ({{dapp_formatBalance (TemplateVar.getFrom ".dapp-select-gas-price" "gasInWei") "0,0.00[0000000000000000] " "ether"}} SOIL)
                 {{/if}}
             </div>
 
@@ -174,11 +176,11 @@
         </div>
 
         <hr>
-        
+
         <!-- a button type="submit" will send the form -->
 
         <button type="submit" class="dapp-block-button">
-            {{#if TemplateVar.get "sending"}} 
+            {{#if TemplateVar.get "sending"}}
                 {{i18n 'buttons.sending'}}
             {{else}}
                 {{#if deployContract}}
@@ -188,7 +190,7 @@
                 {{/if}}
             {{/if}}
         </button>
-        
+
     </form>
 
 </template>

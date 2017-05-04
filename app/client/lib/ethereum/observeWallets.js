@@ -390,7 +390,7 @@ var setupContractFilters = function(newDocument, checkFromCreationBlock){
                         Helpers.showNotification('wallet.transactions.notifications.incomingTransaction', {
                             to: Helpers.getAccountNameByAddress(newDocument.address),
                             from: Helpers.getAccountNameByAddress(log.args.from),
-                            amount: EthTools.formatBalance(log.args.value, '0,0.00[000000] unit', 'ether')
+                            amount: EthTools.formatBalance(log.args.value, '0,0.00[000000]', 'ether') + 'soil'
                         }, function() {
 
                             // on click show tx info
@@ -422,7 +422,7 @@ var setupContractFilters = function(newDocument, checkFromCreationBlock){
                         Helpers.showNotification('wallet.transactions.notifications.outgoingTransaction', {
                             to: Helpers.getAccountNameByAddress(log.args.to),
                             from: Helpers.getAccountNameByAddress(newDocument.address),
-                            amount: EthTools.formatBalance(log.args.value, '0,0.00[000000] unit', 'ether')
+                            amount: EthTools.formatBalance(log.args.value, '0,0.00[000000]', 'ether') + 'soil'
                         }, function() {
 
                             // on click show tx info
@@ -474,7 +474,7 @@ var setupContractFilters = function(newDocument, checkFromCreationBlock){
                                     initiator: Helpers.getAccountNameByAddress(log.args.initiator),
                                     to: Helpers.getAccountNameByAddress(log.args.to),
                                     from: Helpers.getAccountNameByAddress(newDocument.address),
-                                    amount: EthTools.formatBalance(log.args.value, '0,0.00[000000] unit', 'ether')
+                                    amount: EthTools.formatBalance(log.args.value, '0,0.00[000000]', 'ether') + 'soil'
                                 }, function() {
                                     FlowRouter.go('/account/'+ newDocument.address);
                                 });

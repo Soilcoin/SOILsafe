@@ -9,8 +9,16 @@
             {{> elements_selectableUnit}}
         {{else}}
             <span>
-                {{unit}}
+                {{#if $neq unit 'ether'}}
+                  {{unit}}
+                {{else}}
+                  soil
+                {{/if}}
             </span>
         {{/if}}
     </span>
 </template>
+
+
+
+

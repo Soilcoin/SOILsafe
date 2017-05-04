@@ -90,7 +90,7 @@ var connect = function(){
         // make sure the modal is rendered after all routes are executed
         Meteor.setTimeout(function(){
             // if in mist, tell to start geth, otherwise start with RPC
-            var gethRPC = (web3.admin) ? 'geth' : 'geth --rpc --rpccorsdomain "'+window.location.protocol + '//' + window.location.host+'"';
+            var gethRPC = (web3.admin) ? 'geth' : 'gsoil --rpc --rpccorsdomain "'+window.location.protocol + '//' + window.location.host+'"';
 
             EthElements.Modal.question({
                 text: new Spacebars.SafeString(TAPi18n.__('wallet.app.texts.connectionError' + (web3.admin ? 'Mist' : 'Browser'), 

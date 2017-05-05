@@ -23,8 +23,8 @@
             "texts": {
                 "note": "Примітка",
                 "balance": "Баланс",
-                "connectionErrorMist": "Не можу з'єднатися. Будь ласка запустить geth використовуючи:<br><br><small><code>__node__</code><br><br>Переконайтеся, що ви встановили IPC шлях за замовчанням, коли використовували інший <code>datadir</code>, наприклад<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Ethereum/geth.ipc</code><br>або<br><code>geth --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/geth.ipc</code>. <br><br>Можна додати: <code>--unlock &lt;yourAccount&gt;.</code></small>",
-                "connectionErrorBrowser": "Не можу з'єднатися. Будьласка запустить geth з такими параметрами:<br><br><small><code>__node__</code><br><br>Можна додати: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorMist": "Не можу з'єднатися. Будь ласка запустить gsoil використовуючи:<br><br><small><code>__node__</code><br><br>Переконайтеся, що ви встановили IPC шлях за замовчанням, коли використовували інший <code>datadir</code>, наприклад<br><code>gsoil --datadir ... --ipcpath /Users/&lt;yourUser&gt;/Library/Soil/gsoil.ipc</code><br>або<br><code>gsoil --datadir ... --ipcpath /Users/&lt;yourUser&gt;/.ethereum/gsoil.ipc</code>. <br><br>Можна додати: <code>--unlock &lt;yourAccount&gt;.</code></small>",
+                "connectionErrorBrowser": "Не можу з'єднатися. Будьласка запустить gsoil з такими параметрами:<br><br><small><code>__node__</code><br><br>Можна додати: <code>--unlock &lt;yourAccount&gt;.</code></small>",
                 "pendingConfirmationsBadge": "Потрібні підтвердження!",
                 "nodeSyncing": "залишилось __blockDiff__ блоків",
                 "blockReceived": "Новий Блок отримано",

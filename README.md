@@ -1,6 +1,6 @@
-# Ethereum Wallet Ðapp
+# SOILsafe
 
-The Ethereum wallet.
+The Soil wallet.
 
 **NOTE** The wallet is not yet official released,
 can contain severe bugs!
@@ -8,13 +8,13 @@ can contain severe bugs!
 
 ## Development
 
-Start an `geth` node and and the app using meteor and open http://localhost:3000 in your browser:
+Start an `gsoil` node and and the app using meteor and open http://localhost:3000 in your browser:
 
-    $ geth --rpccorsdomain "http://localhost:3000" --rpc --unlock <your account>
+    $ gsoil --rpccorsdomain "http://localhost:3000" --rpc --unlock <your account>
 
 Starting the wallet dapp using [Meteor](http://meteor.com/install)
 
-    $ cd meteor-dapp-wallet/app
+    $ cd SOILsafe/app
     $ meteor
 
 Go to http://localhost:3000
@@ -28,7 +28,7 @@ To create a build version of your app run:
     $ npm install -g meteor-build-client
 
     // bundle dapp
-    $ cd meteor-dapp-wallet/app
+    $ cd SOILsafe/app
     $ meteor-build-client ../build --path ""
 
 This will generate the files in the `../build` folder. Double click the index.html to start the app.
